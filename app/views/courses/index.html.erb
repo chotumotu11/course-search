@@ -1,0 +1,21 @@
+<form method="GET">
+<h2> Search <input type=text name="looking_for"></h2>
+<button name="submit" >Search</button>
+</form>
+
+<h1>Searching for - <%= @search_term %> </h1>
+
+<table border='1'>
+	<tr>
+		<th>Image</th>
+		<th>Name</th>
+		<th>Description</th>
+	</tr>
+	<% @courses.each do |course| %>
+	<tr class= <%= cycle('even','odd') %>>
+		<td><img src=<%=course["photoUrl"]%> width=80 height=60></td>
+		<td><%= course["name"] %></td>
+		<td><%= course["description"] %></td>
+	</tr>
+	<%end%>
+</table>
